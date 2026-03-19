@@ -8,10 +8,10 @@ Interaktivní webová aplikace, která v reálném čase zobrazuje polohy soupra
 * **Detail vlaku:** Možnost rozkliknout konkrétní soupravu a vidět její cílovou stanici a jízdní řád.
 * **Ochrana API:** Backend obsahuje PHP proxy skripty, které řeší CORS a používají cache, aby nedošlo k přetížení Golemio API.
 
-## 🛠️ Použité technologie
+## Použité technologie
 * **Frontend:** HTML, CSS, JavaScript
 * **Backend:** PHP (Proxy + Cache)
 * **Data:** Otevřená data Hlavního města Prahy (Golemio API v2)
 
-## 💡 Upozornění k repozitáři
+## Upozornění k repozitáři
 Z bezpečnostních důvodů jsou v PHP souborech v tomto repozitáři odstraněny osobní API klíče. Pro zprovoznění na vlastním serveru je nutné doplnit vlastní Golemio Access Token.
