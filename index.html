@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odjezdy Metra Praha</title>
+    <link rel="icon" href="ikonka.svg" class="ikonka" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=19">
+
+</head>
+
+<body>
+    <!-- Navbar pro vyber -->
+    <div class="navbar">
+        <button class="active" onclick="ukazSekci('sekce-mapa', this)">UKÁZAT MAPU</button>
+        <button onclick="ukazSekci('sekce-odjezdy', this)">UKÁZAT ODJEZDY</button>
+        <button onclick="ukazSekci('sekce-seznam', this)">SEZNAM STANIC</button>
+        <h1 id="hlavni_cas">00:00:00</h1>
+    </div>
+
+    <!-- Sekce mapa, ve ktere se nachazi svg mapy -->
+<div id="sekce-mapa" class="obsah-sekce" style="display: block;">
+    <div class="lista">
+    <h1 id="hlavni_nadpis">Mapa metra</h1>
+    </div> 
+    <div id="mapa-kontejner" class="mapa-kontejner">
+
+    </div>
+    <div class="scroll-hint">
+        ⟷ Posouvejte mapu do stran pro zobrazení všech stanic ⟷
+        </div>
+
+</div>
+
+    <!-- Sekce odjezdy ve ktere se vypisuji jednotlive informace o soupravach -->
+<div id="sekce-odjezdy" class="obsah-sekce" style="display: none;">
+    <div class="lista">
+        <h1 id="hlavni_nadpis">Odjezdy souprav</h1>
+    </div>
+
+    <div id="seznamy_stavu">
+        <div class="sloupec">
+            <h2 class = "linka_C">Linka C</h2>
+            <div id="stavy_vozu_C">
+                <p></p>
+            </div>
+        </div>
+        <div class="sloupec">
+            <h2 class = "linka_B" >Linka B</h2>
+            <div id="stavy_vozu_B">
+                <p></p>
+            </div>
+        </div>
+        <div class="sloupec">
+            <h2 class = "linka_A" >Linka A</h2>
+            <div id="stavy_vozu_A">
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="sekce-stanice" class="obsah-sekce" style="display: none;">
+    
+    <div id="stanice-hlavicka">
+        <h1 id="nadpis_rozkliknute_stanice">Název stanice</h1>
+    </div>
+
+    <div id="odjezdy-kontejner">
+    </div>    
+
+    <div class="stanice-schema-kontejner">
+        <h2 class="schema-nadpis">Schéma přestupního uzlu</h2>
+        <iframe id="stanice-pdf" src="" frameborder="0"></iframe>
+    </div>
+
+</div>
+
+<div id="sekce-seznam" class="obsah-sekce" style="display: none;">
+    <div class="lista">
+        <h1 id="hlavni_nadpis">Seznam stanic</h1>
+    </div>
+    <div id="seznamy_stavu">
+        <div class="sloupec" id="seznam-C">
+            <h2 class = "linka_C">Linka C</h2>
+            </div>
+        <div class="sloupec" id="seznam-B">
+            <h2 class = "linka_B">Linka B</h2>
+            </div>
+        <div class="sloupec" id="seznam-A">
+            <h2 class = "linka_A">Linka A</h2>
+            </div>
+    </div>
+</div>
+
+<div id="modal-vlak" class="modal-vlak-pozadi" style="display: none;">
+    <div class="modal-vlak-obsah">
+        <span class="zavrit-modal" onclick="zavriDetailVlaku()">&times;</span>
+        <h2 id="modal-nadpis">Detail vlaku</h2>
+        <div id="modal-seznam">Načítám data o trase...</div>
+    </div>
+</div>
+        
+<footer class="footer">
+    <p>Tato aplikace využívá otevřená data platformy <strong>Golemio</strong> (Hlavní město Praha) pro získávání informací o odjezdech a polohách vozů v reálném čase.</p>
+    <p>Schémata linek a mapové podklady vycházejí z oficiálních materiálů <strong>Pražské integrované dopravy (PID)</strong>.</p>
+</footer>
+</body>
+<script src="stations.js?v=5"></script>
+<script src="app.js?v=18"></script>
+</html>
